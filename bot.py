@@ -2,11 +2,11 @@ import discord
 from discord.ext import commands
 
 TOKEN = 'Njk3OTc0NDI1MDcyNTY2Mjkz.Xs09Wg.OdaArzhePDbUTtsG5hwbAOuZPp4'
-bot = commands.Bot(command_prefix = "-")
+bot = commands.Bot(command_prefix = "-") 
 
 extensions = ['RolechangeCog', 'SayEmbedCog', 'SayEmbedCogeveryone']
 
-#Events 
+#Event
 @bot.event
 async def on_ready():
     print('Bot Online.')
