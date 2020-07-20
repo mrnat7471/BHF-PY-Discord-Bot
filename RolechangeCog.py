@@ -4,7 +4,7 @@ import asyncio
 import datetime
 
 class SayEmbedCog(commands.Cog):
-    bot = commands.Bot(command_prefix='-')
+    bot = commands.Bot(command_prefix='bhf.')
 
     def __init__(self, bot):
         self.bot = bot
@@ -12,6 +12,7 @@ class SayEmbedCog(commands.Cog):
     @bot.command(name='rolechange')
     @commands.has_any_role("Event Founder", "Event Organiser", "Event Supervisor", "Media Manager", "Streamer Manager")
     async def say_embed(self, ctx, *, message):
+        channel = self.bot.get_channel(678328684750307328)
         embed = discord.Embed(
             colour=discord.Colour.red(),
             description=message
@@ -26,10 +27,10 @@ class SayEmbedCog(commands.Cog):
         if ctx.message.attachments:
             f = await ctx.message.attachments[0].to_file()
             embed.set_image(url=f"attachment://{f.filename}")
-            await ctx.channel.send(file=f, embed=embed)
+            await channel.send(file=f, embed=embed)
 
         else:
-            await ctx.channel.send(embed=embed)
+            await channel.send(embed=embed)
 
         await ctx.message.delete()
 def setup(bot):
