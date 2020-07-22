@@ -10,7 +10,7 @@ class joinCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @bot.command(name='tfm')
+    @bot.command(name='urlplay')
     async def join(self, ctx, message):
         channel = ctx.author.voice.channel
         vc = await channel.connect()
