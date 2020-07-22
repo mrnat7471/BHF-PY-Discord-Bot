@@ -8,13 +8,14 @@ TOKEN = 'NjA4NjYzMjM2MjM3MzI4Mzg2.XqHB4A.N-NGZ585F9WvJPCgZLj1ZmIbMgI'
 bot = commands.Bot(command_prefix = "bhf.") 
 bot.remove_command('help')
 
-extensions = ['adminCog', 'announceCog', 'CapitalCog', 'ccannounceCog', 'donationsCog', 'everyoneCog', 'helpCog', 'infoCog', 'leaveCog', 'mannounceCog', 'purgeCog', 'RecruitCog', 'RolechangeCog', 'RouteCog', 'sannounceCog', 'SayEmbedCog', 'SayEmbedCogeveryone', 'slotsCog', 'tfmCog']
+extensions = ['adminCog', 'announceCog', 'CapitalCog', 'tfmurlCog', 'ccannounceCog', 'donationsCog', 'everyoneCog', 'helpCog', 'infoCog', 'leaveCog', 'mannounceCog', 'purgeCog', 'RecruitCog', 'RolechangeCog', 'RouteCog', 'sannounceCog', 'SayEmbedCog', 'SayEmbedCogeveryone', 'slotsCog', 'tfmCog']
 
 #Event
 @bot.event
-async def on_ready():
+async def on_ready(self, bot):
+    self.bot = bot
     print('Bot Online.')
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="BHF Discord"))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=len(bot.guild.members)))
 
 @bot.event
 async def on_member_join(member):
