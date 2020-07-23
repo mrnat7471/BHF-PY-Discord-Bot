@@ -12,10 +12,9 @@ extensions = ['adminCog', 'announceCog', 'CapitalCog', 'tfmurlCog', 'ccannounceC
 
 #Event
 @bot.event
-async def on_ready(self, bot):
-    self.bot = bot
+async def on_ready():
     print('Bot Online.')
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=len(bot.guild.members)))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='BHF Discord'))
 
 @bot.event
 async def on_member_join(member):
