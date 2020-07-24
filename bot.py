@@ -8,7 +8,27 @@ TOKEN = 'NjA4NjYzMjM2MjM3MzI4Mzg2.XqHB4A.N-NGZ585F9WvJPCgZLj1ZmIbMgI'
 bot = commands.Bot(command_prefix = "bhf.") 
 bot.remove_command('help')
 
-extensions = ['adminCog', 'announceCog', 'CapitalCog', 'tfmurlCog', 'ccannounceCog', 'donationsCog', 'everyoneCog', 'helpCog', 'infoCog', 'leaveCog', 'mannounceCog', 'purgeCog', 'RecruitCog', 'RolechangeCog', 'RouteCog', 'sannounceCog', 'SayEmbedCog', 'SayEmbedCogeveryone', 'slotsCog', 'tfmCog']
+extensions = ['adminCog', 
+'announceCog', 
+'CapitalCog', 
+'tfmurlCog', 
+'ccannounceCog', 
+'donationsCog', 
+'everyoneCog', 
+'helpCog', 
+'infoCog', 
+'leaveCog', 
+'mannounceCog', 
+'purgeCog', 
+'RecruitCog', 
+'RolechangeCog', 
+'RouteCog', 
+'sannounceCog', 
+'SayEmbedCog', 
+'SayEmbedCogeveryone', 
+'slotsCog', 
+'tfmCog',
+'hereCog']
 
 #Event
 @bot.event
@@ -48,23 +68,6 @@ async def on_member_join(member):
     embed.set_thumbnail(url="https://images.nathan7471.xyz/q705a9sm.jpg")  
     await channel.send(embed=embed)
     await member.add_roles(role)
-#Commands 
-@bot.command()
-async def load(extension):
-    try:
-        bot.load_extension(extension)
-        print('Loaded {}'.format(extension))
-    except Exception as error:
-        print('{} cannot be loaded [{}]'.format(extension, error))
-
-@bot.command()
-async def unload(extension):
-    try:
-        bot.unload_extension(extension)
-        print('unLoaded {}'.format(extension))
-    except Exception as error:
-        print('{} cannot be unloaded [{}]'.format(extension, error))
-
 
 if __name__ == '__main__':
     for extension in extensions:
