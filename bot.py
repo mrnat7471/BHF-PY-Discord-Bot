@@ -17,6 +17,28 @@ async def on_ready():
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='BHF Discord'))
 
 @bot.event
+async def on_command_error(ctx, error):
+    channel = bot.get_channel(720590060881182765)
+    print(str(error))
+    await channel.send(f"{ctx.message.author.name} | {ctx.guild.name} ```" + str(error) + "```")
+    ignored = (commands.CommandNotFound, commands.UserInputError)
+    if isinstance(error, ignored):
+        return
+
+    if isinstance(error, commands.CommandOnCooldown):
+        m, s = divmod(error.retry_after, 60)
+        h, m = divmod(m, 60)
+        if int(h) == 0 and int(m) == 0:
+            await ctx.channel.send(f'You must wait {int(s)} seconds to use this command!')
+        elif int(h) == 0 and int(m) != 0:
+            await ctx.channel.send(f'You must wait {int(s)} minutes and {int(s)} seconds to use this command!')
+        else:
+            await ctx.channel.send(f'You must wait {int(h)} hours, {int(s)} minutes and {int(s)} seconds to use this command!')
+    elif isinstance(error, commands.CheckFailure):
+        await ctx.channel.send("You lack permission to use this command.")
+        raise error
+
+@bot.event
 async def on_member_join(member):
     channel = discord.utils.get(member.guild.channels, name="general")
     role = discord.utils.get(member.guild.roles, name="Public")
@@ -47,7 +69,7 @@ async def unload(extension):
 if __name__ == '__main__':
     for extension in extensions:
         try:
-            bot.load_extension(extension)
+            bot.load_extension("Cogs." + extension)
         except Exception as error:
             print('{} cannot be loaded [{}]'.format(extension, error))
     bot.run(TOKEN)

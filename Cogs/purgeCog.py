@@ -15,6 +15,7 @@ class purgeCog(commands.Cog):
     @bot.command(name='purge')
     @commands.has_any_role("Event Founder", "Event Organiser", "Event Supervisor", "Media Manager", "Streamer Manager")
     async def clear(self,ctx, message):
+        await ctx.message.delete()
         await ctx.channel.purge(limit=int(message))
 
 def setup(bot):

@@ -10,13 +10,12 @@ class joinCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @bot.command(name='capital')
+    @bot.command(name='tfm')
     async def join(self, ctx):
         channel = ctx.author.voice.channel
         vc = await channel.connect()
         await ctx.message.delete()
-        vc.play(discord.FFmpegPCMAudio('http://media-ice.musicradio.com/CapitalMP3'))
-        vc.source = discord.PCMVolumeTransformer(vc.source)
-        vc.source.volume = 1.0
+        print(f"{ctx.message.author.name} ran join and play tfm.```")
+        vc.play(discord.FFmpegPCMAudio('http://live.truckers.fm'))
 def setup(bot):
     bot.add_cog(joinCog(bot)) 

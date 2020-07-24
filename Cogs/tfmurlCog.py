@@ -16,7 +16,6 @@ class joinCog(commands.Cog):
         vc = await channel.connect()
         await ctx.message.delete()
         vc.play(discord.FFmpegPCMAudio(message))
-        vc.source = discord.PCMVolumeTransformer(vc.source)
-        vc.source.volume = 1.0
+        print(f"{ctx.message.author.name} ran join and play tfmurl.```")
 def setup(bot):
     bot.add_cog(joinCog(bot)) 
