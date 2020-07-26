@@ -67,5 +67,13 @@ class playCog(commands.Cog):
 
         message = await ctx.channel.send(embed=embed)
         await ctx.message.delete()
+
+    @play.command()
+    @commands.is_owner()
+    async def reach(self, ctx):
+        channel = ctx.author.voice.channel
+        vc = await channel.connect()
+        await ctx.message.delete()
+        vc.play(discord.FFmpegPCMAudio('https://stream.reachradio.co.uk'))
 def setup(bot):
     bot.add_cog(playCog(bot)) 

@@ -5,7 +5,7 @@ import asyncio
 import datetime
 
 TOKEN = 'NjA4NjYzMjM2MjM3MzI4Mzg2.XqHB4A.N-NGZ585F9WvJPCgZLj1ZmIbMgI'
-bot = commands.Bot(command_prefix = "bhf.") 
+bot = commands.Bot(command_prefix = "bhf.", owner_id=510238066829688832) 
 bot.remove_command('help')
 
 extensions = ['adminCog', 
