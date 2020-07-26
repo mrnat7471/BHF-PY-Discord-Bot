@@ -10,25 +10,19 @@ bot.remove_command('help')
 
 extensions = ['adminCog', 
 'announceCog', 
-'CapitalCog', 
 'tfmurlCog', 
-'ccannounceCog', 
 'donationsCog', 
-'everyoneCog', 
 'helpCog', 
 'infoCog', 
 'leaveCog', 
-'mannounceCog', 
 'purgeCog', 
 'RecruitCog', 
 'RolechangeCog', 
-'RouteCog', 
-'sannounceCog', 
+'RouteCog',  
 'SayEmbedCog', 
 'SayEmbedCogeveryone', 
 'slotsCog', 
-'tfmCog',
-'hereCog']
+'playCog']
 
 #Event
 @bot.event
@@ -38,9 +32,7 @@ async def on_ready():
 
 @bot.event
 async def on_command_error(ctx, error):
-    channel = bot.get_channel(720590060881182765)
     print(str(error))
-    await channel.send(f"{ctx.message.author.name} | {ctx.guild.name} ```" + str(error) + "```")
     ignored = (commands.CommandNotFound, commands.UserInputError)
     if isinstance(error, ignored):
         return

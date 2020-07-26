@@ -14,7 +14,22 @@ class helpCog(commands.Cog):
     async def help(self, ctx):
         embed = discord.Embed(
             colour=discord.Colour.red(), 
-            description='The prefix for the bot is ``bhf.`` \n \n ``announce`` = Sends an Announcement to the Announcements Channel \n ``ccannounce`` = Sends an CC announcement \n ``donation`` = Sends Donation to Donation Channel \n ``everyone`` = Sends an Everyone Announcement \n ``mannounce`` = Sends an Media Announcement \n ``purge`` = Purge X Messages \n ``recruit`` = Send a recruit message to recruit channel \n ``rolechange`` = Send a role change announcement \n ``route`` = Send a new route (Message is embed title) \n ``sannounce`` = Staff Announcement \n ``testannounce`` = Embed Message \n ``testeveryone`` = Everyone Ping Embed Message \n ``slots`` = Sends a slot photo embed to slot channel (message = Title)',
+            description="""
+            The prefix for the bot is ``bhf.``
+            
+            ``announce`` = Sends an Announcement to the Announcements Channel
+            ``announce-cc`` = Sends an CC announcement
+            ``donation`` = Sends Donation to Donation Channel
+            ``announce-everyone`` = Sends an Everyone Announcement
+            ``announce-media`` = Sends an Media Announcement
+            ``purge`` = Purge X Messages
+            ``recruit`` = Send a recruit message to recruit channel
+            ``rolechange`` = Send a role change announcement
+            ``route`` = Send a new route (Message is embed title)
+            ``announce-staff`` = Staff Announcement
+            ``testannounce`` = Embed Message
+            ``testeveryone`` = Everyone Ping Embed Message
+            ``slots`` = Sends a slot photo embed to slot channel (message = Title)""",
             title='Admin Help!')
 
         embed.timestamp = datetime.datetime.utcnow()

@@ -14,7 +14,13 @@ class helpCog(commands.Cog):
     async def help(self, ctx):
         embed = discord.Embed(
             colour=discord.Colour.red(), 
-            description='The prefix for the bot is ``bhf.`` \n \n ``info`` - Shows some event information! \n ``help`` - Shows this screen! Shows what commands you can use! \n ``join`` - Joins the voice channel you are currently in. \n ``tfm`` - Plays TruckersFM! \n ``capital`` - Plays CapitalFM! \n ``leave`` - Leaves the current voice channel. \n  \n Bot is a work in progress, more commands will be added (:',
+            description="""The prefix for the bot is ``bhf.``
+            
+            ``info`` - Shows some event information!
+            ``help`` - Shows this screen! Shows what commands you can use!
+            ``play tfm`` - Plays TruckersFM!
+            ``play capital`` - Plays CapitalFM!
+            ``leave`` - Leaves the current voice channel.""",
             title='Help!')
 
         embed.timestamp = datetime.datetime.utcnow()
