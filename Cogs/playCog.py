@@ -13,7 +13,7 @@ class playCog(commands.Cog):
     @commands.group()
     async def play(self, ctx):
         if ctx.invoked_subcommand is None:
-            embed = discord.Embed(colour=discord.Colour.red(), description="Please do bhf.play (tfm, capital or sr)")
+            embed = discord.Embed(colour=discord.Colour.red(), description="Please do bhf.play (tfm, capital or sr or (reach - Nathan7471 can't only run this command till radio release)")
             embed.set_author(name='BHF Bot', icon_url=self.bot.user.avatar_url)
             embed.timestamp = datetime.datetime.utcnow()
             embed.set_footer(text=f'BHF Bot Radio Module', icon_url=self.bot.user.avatar_url)
