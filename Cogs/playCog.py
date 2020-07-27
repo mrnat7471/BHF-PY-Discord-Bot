@@ -26,7 +26,7 @@ class playCog(commands.Cog):
         vc = await channel.connect()
         await ctx.message.delete()
         print(f"{ctx.message.author.name} ran join and play tfm.")
-        vc.play(discord.FFmpegPCMAudio('http://live.truckers.fm'))
+        vc.play(discord.FFmpegPCMAudio('http://djs.truckers.fm:8010/live'))
 
         embed = discord.Embed(colour=discord.Colour.red(), description="Join your voice channel & now playing TruckersFM")
         embed.set_author(name='BHF Bot', icon_url=self.bot.user.avatar_url)
