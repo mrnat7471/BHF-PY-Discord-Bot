@@ -28,7 +28,8 @@ extensions = ['adminCog',
 @bot.event
 async def on_ready():
     print('Bot Online.')
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='BHF Discord'))
+    memberCount = len(set(bot.get_all_members()))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f'{memberCount} members'))
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -57,7 +58,9 @@ async def on_member_join(member):
     embed = discord.Embed(colour=discord.Colour.red(), description=f"Welcome to the BHF Event Discord server, {member.mention}! \n \n > 💕 Head over to <#587224128516390913> to read our rules! \n > 💕 Head over to <#587224234384949258> to see information on our next event! \n > 💕 Head over to <#591923276855509006> to see any announcements regarding our events! \n \n We hope you enjoy your stay in our discord server!",
     title='Welcome!')
     embed.timestamp = datetime.datetime.utcnow()
-    embed.set_thumbnail(url="https://images.nathan7471.xyz/q705a9sm.jpg")  
+    embed.set_thumbnail(url="https://images.nathan7471.xyz/q705a9sm.jpg")
+    memberCount = len(set(bot.get_all_members()))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f'{memberCount} members'))
     await channel.send(embed=embed)
     await member.add_roles(role)
 
