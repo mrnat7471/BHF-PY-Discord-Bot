@@ -57,10 +57,26 @@ class playCog(commands.Cog):
         channel = ctx.author.voice.channel
         vc = await channel.connect()
         await ctx.message.delete()
-        print(f"{ctx.message.author.name} ran join and play capital.")
+        print(f"{ctx.message.author.name} ran join and play SR")
         vc.play(discord.FFmpegPCMAudio('https://simulatorradio.stream/96'))
 
         embed = discord.Embed(colour=discord.Colour.red(), description="Join your voice channel & now playing Simulator Radio")
+        embed.set_author(name='BHF Bot', icon_url=self.bot.user.avatar_url)
+        embed.timestamp = datetime.datetime.utcnow()
+        embed.set_footer(text=f'BHF Bot Radio Module', icon_url=self.bot.user.avatar_url)
+
+        message = await ctx.channel.send(embed=embed)
+        await ctx.message.delete()
+        
+    @play.command()
+    async def tsr(self, ctx):
+        channel = ctx.author.voice.channel
+        vc = await channel.connect()
+        await ctx.message.delete()
+        print(f"{ctx.message.author.name} ran join and play truckstopradio")
+        vc.play(discord.FFmpegPCMAudio('https://truckstopradio.radioca.st/stream.mp3'))
+
+        embed = discord.Embed(colour=discord.Colour.red(), description="Join your voice channel & now playing truckstopradio")
         embed.set_author(name='BHF Bot', icon_url=self.bot.user.avatar_url)
         embed.timestamp = datetime.datetime.utcnow()
         embed.set_footer(text=f'BHF Bot Radio Module', icon_url=self.bot.user.avatar_url)
