@@ -4,7 +4,7 @@ import ffmpeg
 import asyncio
 import datetime
 
-TOKEN = 'Njk3OTc0NDI1MDcyNTY2Mjkz.Xo_FVg.UhH7Yc7_0E_qY0k8M_iRQYQARng'
+TOKEN = ''
 bot = commands.Bot(command_prefix = "bhf.", owner_id=510238066829688832) 
 bot.remove_command('help')
 
